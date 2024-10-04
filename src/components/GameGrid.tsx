@@ -4,12 +4,13 @@ import { IGame, IGameQuery } from '../interfaces';
 import { GameCardContainer } from './GameCardContainer';
 import { GameCardSkeleton } from './GameCardSkeleton';
 import GameCard from './GameCard';
+import { FC } from 'react';
 
-interface Props {
+type Props = {
   gameQuery: IGameQuery;
-}
+};
 
-const GameGrid = ({ gameQuery }: Props) => {
+const GameGrid: FC<Props> = ({ gameQuery }) => {
   const { data, error, isLoading } = useGetGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
