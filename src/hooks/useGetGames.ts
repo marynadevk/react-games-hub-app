@@ -1,18 +1,21 @@
 import { IGame, IGameQuery } from '../interfaces';
-import useData from './useData';
+import ApiClient, { FetchResponse } from '../services/api';
+import { useQuery } from '@tanstack/react-query';
 
-const useGetGames = (gameQuery: IGameQuery) =>
-  useData<IGame>(
-    '/games',
-    {
-      params: {
-        genres: gameQuery.genre?.id,
-        platforms: gameQuery.platform?.id,
-        ordering: gameQuery.sortOrder,
-        search: gameQuery.searchText,
-      },
-    },
-    [gameQuery]
-  );
+const apiClient = new ApiClient<IGame>('/games');
 
-export default useGetGames;
+const useGames = (gameQuery: IGameQuery) =>
+  useQuery<FetchResponse<IGame>, Error>({
+    queryKey: ['games', gameQuery],
+    queryFn: () =>
+      apiClient.getAll({
+        params: {
+          genres: gameQuery.genre?.id,
+          parent_platforms: gameQuery.platform?.id,
+          ordering: gameQuery.sortOrder,
+          search: gameQuery.searchText,
+        },
+      }),
+  });
+
+export default useGames;

@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios, { AxiosRequestConfig } from 'axios';
 import { envConfig } from '../config';
 
 export interface FetchResponse<T> {
@@ -12,16 +12,24 @@ export const axiosInstance = axios.create({
   },
 });
 
-class apiClient<T> {
+class ApiClient<T> {
   endpoint: string;
+
   constructor(endpoint: string) {
     this.endpoint = endpoint;
   }
-  getAll = (config: AxiosRequestConfig) => {
-    return axiosInstance
-      .get<FetchResponse<T>>(this.endpoint, config)
-      .then((res) => res.data);
+
+  getAll = async (config: AxiosRequestConfig) => {
+    const res = await axiosInstance
+      .get<FetchResponse<T>>(this.endpoint, config);
+    return res.data;
+  };
+
+  get = async (id: number | string) => {
+    const res = await axiosInstance
+      .get<T>(this.endpoint + '/' + id);
+    return res.data;
   };
 }
 
-export default axiosInstance;
+export default ApiClient;
