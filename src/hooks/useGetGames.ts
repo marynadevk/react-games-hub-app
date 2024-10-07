@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import { IGame, IGameQuery } from '../interfaces';
-import { CanceledError } from 'axios';
 import useData from './useData';
 
 const useGetGames = (gameQuery: IGameQuery) =>

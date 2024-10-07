@@ -10,13 +10,14 @@ import {
 import { useGenres } from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
 import { IGenre } from '../interfaces';
+import { FC } from 'react';
 
-interface Props {
+type Props = {
   onSelectGenre: (genre: IGenre) => void;
   selectedGenre: IGenre | null;
-}
+};
 
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+export const GenreList: FC<Props> = ({ selectedGenre, onSelectGenre }) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -41,7 +42,9 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
                 whiteSpace="normal"
                 textAlign="left"
                 fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
-                color={genre.id === selectedGenre?.id ? 'orange.300' : 'gray.100'}
+                color={
+                  genre.id === selectedGenre?.id ? 'orange.300' : 'gray.100'
+                }
                 onClick={() => onSelectGenre(genre)}
                 fontSize="md"
                 variant="link"
@@ -55,5 +58,3 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
     </>
   );
 };
-
-export default GenreList;

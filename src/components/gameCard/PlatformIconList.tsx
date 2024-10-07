@@ -11,7 +11,7 @@ import { FaLinux } from 'react-icons/fa';
 import { MdPhoneIphone } from 'react-icons/md';
 import { HStack, Icon } from '@chakra-ui/react';
 import { IconType } from 'react-icons';
-import { IPlatform } from '../interfaces';
+import { IPlatform } from '../../interfaces';
 import { FC } from 'react';
 
 type Props = {

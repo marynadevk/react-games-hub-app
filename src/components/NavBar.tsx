@@ -7,7 +7,7 @@ type Props = {
   onSearch?: (searchText: string) => void;
 };
 
-const NavBar: FC<Props> = ({ onSearch }) => {
+export const NavBar: FC<Props> = ({ onSearch }) => {
   return (
     <HStack padding="10px" justifyContent="space-between">
       <Image src={logo} boxSize="80px" />
@@ -15,5 +15,3 @@ const NavBar: FC<Props> = ({ onSearch }) => {
     </HStack>
   );
 };
-
-export default NavBar;
