@@ -3,6 +3,7 @@ import { envConfig } from '../config';
 
 export interface FetchResponse<T> {
   count: number;
+  next: string | null;
   results: T[];
 }
 export const axiosInstance = axios.create({
