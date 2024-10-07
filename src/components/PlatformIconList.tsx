@@ -40,7 +40,7 @@ const PlatformIconList: FC<Props> = ({ platforms = [] }) => {
       borderRadius={50}
     >
       {platforms.map((platform) => (
-        <Icon key={platform.id} as={iconMap[platform.slug]} color="yellow" />
+        <Icon key={platform.id} as={iconMap[platform.slug]} color="orange" />
       ))}
     </HStack>
   );

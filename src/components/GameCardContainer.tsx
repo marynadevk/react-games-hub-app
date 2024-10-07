@@ -7,7 +7,7 @@ type Props = {
 
 export const GameCardContainer: FC<Props> = ({ children }) => {
   return (
-    <Box borderRadius={10} overflow="hidden">
+    <Box borderRadius={10} borderWidth={1} borderColor="gray.600" overflow="hidden">
       {children}
     </Box>
   );

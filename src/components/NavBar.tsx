@@ -5,11 +5,11 @@ import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 type Props = {
   onSearch?: (searchText: string) => void;
-}
+};
 
 const NavBar: FC<Props> = ({ onSearch }) => {
   return (
-    <HStack padding="10px">
+    <HStack padding="10px" justifyContent="space-between">
       <Image src={logo} boxSize="80px" />
       <ColorModeSwitcher />
     </HStack>
