@@ -1,15 +1,14 @@
-import { Card, CardBody, Heading, HStack, Image, Text } from '@chakra-ui/react';
-import { IGame } from '../../interfaces';
 import { FC } from 'react';
+import { Card, CardBody, Heading, HStack, Image } from '@chakra-ui/react';
+import { IGame } from '../../interfaces';
 import getCroppedImageUrl from '../../services/image-url';
-import PlatformIconList from './PlatformIconList';
-import { CriticScore } from './CriticScore';
+import { PlatformIconList, CriticScore, Emoji } from '../index';
 
 type Props = {
   game: IGame;
 };
 
-const GameCard: FC<Props> = ({ game }) => {
+export const GameCard: FC<Props> = ({ game }) => {
   const platforms = game.parent_platforms?.map((p) => p.platform);
   return (
     <Card height="100%">
@@ -19,10 +18,11 @@ const GameCard: FC<Props> = ({ game }) => {
           <PlatformIconList platforms={platforms} />
           <CriticScore score={game.metacritic} />
         </HStack>
-        <Heading fontSize="2xl">{game.name}</Heading>
+        <Heading fontSize="2xl">
+          {game.name}
+          <Emoji rating={game.rating_top} />
+        </Heading>
       </CardBody>
     </Card>
   );
 };
-
-export default GameCard;

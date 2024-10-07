@@ -1,10 +1,8 @@
+import { FC } from 'react';
 import { SimpleGrid, Text } from '@chakra-ui/react';
 import useGetGames from '../hooks/useGetGames';
+import { GameCard, GameCardSkeleton, GameCardContainer } from './index';
 import { IGame, IGameQuery } from '../interfaces';
-import { GameCardContainer } from './gameCard/GameCardContainer';
-import { GameCardSkeleton } from './gameCard/GameCardSkeleton';
-import GameCard from './gameCard/GameCard';
-import { FC } from 'react';
 
 type Props = {
   gameQuery: IGameQuery;

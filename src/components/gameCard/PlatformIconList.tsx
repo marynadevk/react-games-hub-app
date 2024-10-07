@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import {
   BsPlaystation,
   BsNintendoSwitch,
@@ -12,13 +13,12 @@ import { MdPhoneIphone } from 'react-icons/md';
 import { HStack, Icon } from '@chakra-ui/react';
 import { IconType } from 'react-icons';
 import { IPlatform } from '../../interfaces';
-import { FC } from 'react';
 
 type Props = {
   platforms: IPlatform[];
-}
+};
 
-const PlatformIconList: FC<Props> = ({ platforms = [] }) => {
+export const PlatformIconList: FC<Props> = ({ platforms = [] }) => {
   const iconMap: { [key: string]: IconType } = {
     pc: BsWindows,
     playstation: BsPlaystation,
@@ -45,5 +45,3 @@ const PlatformIconList: FC<Props> = ({ platforms = [] }) => {
     </HStack>
   );
 };
-
-export default PlatformIconList;

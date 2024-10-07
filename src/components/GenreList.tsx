@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import {
   Button,
   Heading,
@@ -10,7 +11,6 @@ import {
 import { useGenres } from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
 import { IGenre } from '../interfaces';
-import { FC } from 'react';
 
 type Props = {
   onSelectGenre: (genre: IGenre) => void;

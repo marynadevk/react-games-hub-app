@@ -1,6 +1,6 @@
+import { FC } from 'react';
 import { Heading } from '@chakra-ui/react';
 import { IGameQuery } from '../interfaces';
-import { FC } from 'react';
 
 type Props = {
   gameQuery: IGameQuery;
