@@ -14,10 +14,10 @@ import { IGenre } from '../interfaces';
 
 type Props = {
   onSelectGenre: (genre: IGenre) => void;
-  selectedGenre: IGenre | null;
+  selectedGenreId?: number;
 };
 
-export const GenreList: FC<Props> = ({ selectedGenre, onSelectGenre }) => {
+export const GenreList: FC<Props> = ({ selectedGenreId, onSelectGenre }) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -41,9 +41,9 @@ export const GenreList: FC<Props> = ({ selectedGenre, onSelectGenre }) => {
               <Button
                 whiteSpace="normal"
                 textAlign="left"
-                fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
+                fontWeight={genre.id === selectedGenreId ? 'bold' : 'normal'}
                 color={
-                  genre.id === selectedGenre?.id ? 'orange.300' : 'gray.100'
+                  genre.id === selectedGenreId ? 'orange.300' : 'gray.100'
                 }
                 onClick={() => onSelectGenre(genre)}
                 fontSize="md"
