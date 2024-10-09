@@ -11,6 +11,7 @@ export const SearchBar = () => {
 
   return (
     <form
+      style={{ width: '100%' }}
       onSubmit={(event) => {
         event.preventDefault();
         if (ref.current) {

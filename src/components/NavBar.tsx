@@ -7,7 +7,7 @@ export const NavBar = () => {
   return (
     <HStack padding="10px" flexGrow={1}>
       <Link to="/">
-        <Image src={logo} boxSize="80px" />
+        <Image src={logo} objectFit="contain" boxSize="80px" />
       </Link>
       <SearchBar />
       <ColorModeSwitcher />
