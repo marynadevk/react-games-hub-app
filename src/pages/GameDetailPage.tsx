@@ -1,7 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { useGetGame } from '../hooks/useGetGame';
 import { GridItem, Heading, SimpleGrid, Spinner } from '@chakra-ui/react';
-import { GameAttributes, ExpandableText } from '../components';
+import {
+  GameAttributes,
+  ExpandableText,
+  GameTrailer,
+  GameScreenshots,
+} from '../components';
 
 export const GameDetailPage = () => {
   const { slug } = useParams();
@@ -11,14 +16,16 @@ export const GameDetailPage = () => {
   if (error || !game) throw new Error('Error fetching game');
 
   return (
-    <>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
-        <GridItem>
-          <Heading>{game.name}</Heading>
-          <ExpandableText>{game.description_raw}</ExpandableText>
-          <GameAttributes game={game} />
-        </GridItem>
-      </SimpleGrid>
-    </>
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+      <GridItem>
+        <Heading>{game.name}</Heading>
+        <ExpandableText>{game.description_raw}</ExpandableText>
+        <GameAttributes game={game} />
+      </GridItem>
+      <GridItem>
+        <GameTrailer gameId={game.id} />
+        <GameScreenshots gameId={game.id} />
+      </GridItem>
+    </SimpleGrid>
   );
 };

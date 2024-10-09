@@ -15,3 +15,5 @@ export * from './actions/SearchBar';
 export * from './gameDetails/ExpandableText';
 export * from './gameDetails/DefinitionItem';
 export * from './gameDetails/GameAttributes';
+export * from './gameDetails/GameTrailer';
+export * from './gameDetails/GameScreenshots';

@@ -27,3 +27,17 @@ export interface IPublisher {
   id: number;
   name: string;
 }
+
+export interface ITrailer {
+  id: number;
+  name: string;
+  preview: string;
+  data: { 480: string; max: string };
+}
+
+export interface IScreenshot {
+  id: number;
+  image: string;
+  width: number;
+  height: number;
+}
