@@ -1,34 +1,24 @@
-import { useState } from 'react';
 import { Box, Flex, Grid, GridItem, Show } from '@chakra-ui/react';
-
 import {
   PlatformSelector,
   SortSelector,
   GenreList,
   GameHeading,
-  NavBar,
   GameGrid,
-} from './components';
-import { useGameQueryStore } from './store';
+} from '../components';
 
-export const App = () => {
-  const {} = useGameQueryStore();
-
-
+export const HomePage = () => {
   return (
     <Grid
       templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`,
+        base: `"main"`,
+        lg: `"aside main"`,
       }}
       templateColumns={{
         base: '1fr',
         lg: '250px 1fr',
       }}
     >
-      <GridItem area="nav">
-        <NavBar />
-      </GridItem>
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
           <GenreList />

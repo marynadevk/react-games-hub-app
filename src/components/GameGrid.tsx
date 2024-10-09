@@ -1,7 +1,7 @@
 import { SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import useGetGames from '../hooks/useGetGames';
 import { GameCard, GameCardSkeleton, GameCardContainer } from './index';
-import { IGame } from '../interfaces';
+import { IGame } from '../interfaces/interfaces';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
